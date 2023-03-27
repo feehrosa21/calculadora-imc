@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/saude.png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora IMC</title>
+</head>
+
+<body>
+
+    <h1>Índice de Massa Corporal</h1>
+
+    <div class="container">
+        <label for="peso">Peso (Kg):</label>
+        <input type="number" id="peso" name="peso">
+        <br>
+        <label for="altura">Altura:</label>
+        <input type="number" id="altura" name="altura">
+        <br>
+        <button onclick="calcularImc()">Calcular</button>
+        <br>
+        <p>Seu índice de massa corporal é:<span id="resultado"></span></p>
+    </div>
+
+    <script>
+        function calcularImc() {
+            const peso = document.getElementById('peso').value;
+            const altura = document.getElementById('altura').value;
+            const imc = peso / (altura ** 2);
+
+            document.getElementById('resultado').textContent = imc.toFixed(2);
+        }
+
+        let tituloDinamico = document.title;
+        window.addEventListener("blur", () => {
+            document.title = 'Vem Calcular'
+        });
+
+        window.addEventListener("focus", () => {
+            document.title = tituloDinamico
+        });
+
+    </script>
+
+<footer>Calculadora-IMC by Fernanda Rosa&copy; | <a href="http://instagram.com/feehrosa21"><img src="img/iconinsta.png" alt="icon do insta" width="22px" height="22px"></a>  </footer>
+
+
+</body>
+
+</html>
